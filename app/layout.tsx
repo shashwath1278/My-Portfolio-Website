@@ -1,15 +1,18 @@
-import type React from "react"
-import "@/app/globals.css"
-import { Inter } from "next/font/google"
+import Navbar from '@/components/navbar'
 import { ThemeProvider } from "@/components/theme-provider"
-import GlobalAnimations from '@/components/GlobalAnimations'
+import ScrollIndicator from "@/components/scroll-indicator"
+import ParticleAnimation from "@/components/particle-animation"
+import FloatingShapes from "@/components/floating-shapes"
+import WaveAnimation from "@/components/wave-animation"
+import MagneticCursor from "@/components/magnetic-cursor"
+import RotatingCube from "@/components/rotating-cube"
+import NoiseTexture from "@/components/noise-texture"
+import './globals.css'
+import type { Metadata } from 'next'
 
-const inter = Inter({ subsets: ["latin"] })
-
-export const metadata = {
-  title: "Shashwath | Cy/Dev Enthusiast",
-  description: "Portfolio website showcasing my projects and skills as a full stack developer",
-    generator: 'v0.dev'
+export const metadata: Metadata = {
+  title: 'Elio.dev',
+  description: 'Personal portfolio website',
 }
 
 export default function RootLayout({
@@ -18,17 +21,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <GlobalAnimations />
+    <html lang="en">
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+          <ScrollIndicator />
+          <ParticleAnimation />
+          <FloatingShapes />
+          <WaveAnimation />
+          <MagneticCursor />
+          <RotatingCube />
+          <NoiseTexture />
           {children}
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
-
-
-import './globals.css'
