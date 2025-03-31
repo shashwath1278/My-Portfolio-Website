@@ -125,20 +125,31 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: hsl(var(--primary) / 0.3);
   border-radius: 999px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.6);
+  background: hsl(var(--primary) / 0.7);
 }
 
 /* Hide scrollbar by default but show on hover, for a cleaner look */
 .custom-scrollbar {
   scrollbar-color: hsl(var(--primary) / 0.3) transparent;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scroll-behavior: smooth;
 }
 
 .custom-scrollbar:hover::-webkit-scrollbar-thumb {
   background: hsl(var(--primary) / 0.5);
+}
+
+/* Add snap scrolling for skills */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
 }
 
 /* Animated background gradients */

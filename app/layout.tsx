@@ -11,7 +11,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Elio.dev',
+  title: 'elio.dev',
   description: 'Personal portfolio website',
 }
 

@@ -328,7 +328,6 @@ export default function Home() {
                 github account. If you are interested we can connect, innovate and create together!
               </motion.p>
 
-              {/* New animated button */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -354,16 +353,19 @@ export default function Home() {
               className="overflow-x-auto custom-scrollbar pb-6"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.4 }} 
+              viewport={{ once: true, margin: "-30px" }} 
               style={{
-                scrollbarWidth: 'thin', 
-                msOverflowStyle: 'none' 
+                scrollbarWidth: 'thin',
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch' 
               }}
             >
-              <div className="flex gap-10 min-w-max px-10 py-6">
+              <div className="flex gap-10 min-w-max px-10 py-6 snap-x">
                 {skills.map((skill, index) => (
-                  <AnimatedSkillBadge key={skill.name} name={skill.name} icon={skill.icon} index={index} />
+                  <div key={skill.name} className="snap-center">
+                    <AnimatedSkillBadge name={skill.name} icon={skill.icon} index={index} />
+                  </div>
                 ))}
               </div>
             </motion.div>
