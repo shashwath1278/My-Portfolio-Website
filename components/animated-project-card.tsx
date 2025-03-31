@@ -1,12 +1,9 @@
 "use client"
 
-import Image from "next/image"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import { Github, ExternalLink } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
 
 interface AnimatedProjectCardProps {
   title: string
@@ -28,55 +25,55 @@ export default function AnimatedProjectCard({
   index,
 }: AnimatedProjectCardProps) {
   return (
-    <motion.div 
-      className="group relative bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all border border-black dark:border-purple-500"
+    <motion.div
+      className="relative group overflow-hidden rounded-lg border border-border bg-card shadow-sm hover:shadow-md transition-all duration-300"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "-100px" }}
     >
-      <div className="aspect-video relative">
-        <Image
-          src={imageUrl}
-          alt={title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
-          <div className="flex items-center justify-center h-full gap-4">
-            <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
-              <Button 
-                variant="outline" 
-                size="sm"
-                className="border-2 border-white/70 hover:border-white bg-transparent text-white hover:bg-white/10"
-              >
-                <Github className="h-4 w-4 mr-2" />
-                GitHub
-              </Button>
-            </Link>
-            {liveUrl && (
-              <Link href={liveUrl} target="_blank" rel="noopener noreferrer">
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  className="border-2 border-white/70 hover:border-white bg-transparent text-white hover:bg-white/10"
-                >
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Live Demo
-                </Button>
-              </Link>
-            )}
-          </div>
-        </div>
+      <div className="aspect-video overflow-hidden">
+        <motion.div
+          className="w-full h-full"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
+        </motion.div>
       </div>
-      <div className="p-6 space-y-4">
-        <h3 className="text-xl font-semibold text-foreground">{title}</h3>
-        <p className="text-muted-foreground">{description}</p>
-        <div className="flex flex-wrap gap-2">
+      <div className="p-5 space-y-3">
+        <h3 className="text-lg font-semibold line-clamp-1">{title}</h3>
+        <p className="text-muted-foreground text-sm line-clamp-2">{description}</p>
+        <div className="flex flex-wrap gap-2 pt-2">
           {technologies.map((tech) => (
-            <span 
-              key={tech}
-              className="px-3 py-1 text-sm rounded-full bg-muted text-muted-foreground"
-            >
+            <span key={tech} className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
               {tech}
             </span>
           ))}
+        </div>
+        
+        {/* Added buttons */}
+        <div className="flex gap-4 pt-3">
+          {liveUrl && (
+            <Button variant="default" size="sm" className="group" asChild>
+              <Link href={liveUrl} target="_blank" rel="noopener noreferrer">
+                <span>Live Demo</span>
+                <motion.span
+                  className="ml-2"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                >
+                  →
+                </motion.span>
+              </Link>
+            </Button>
+          )}
+          <Button variant="outline" size="sm" asChild>
+            <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <Github className="mr-2 h-4 w-4" />
+              Repository
+            </Link>
+          </Button>
         </div>
       </div>
     </motion.div>

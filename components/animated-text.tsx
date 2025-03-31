@@ -16,11 +16,10 @@ export default function AnimatedText({ text, className = "", once = false }: Ani
     setIsMounted(true)
   }, [])
 
-  if (!isMounted) {
-    return <span className={className}>{text}</span>
-  }
+  if (!isMounted) return <div className={className}>{text}</div>
 
-  const words = text.split(" ")
+  // Split the text by spaces and handle multiple spaces
+  const words = text.split(/(\s+)/).filter((word) => word.trim() !== "")
 
   const container = {
     hidden: { opacity: 0 },
@@ -52,10 +51,20 @@ export default function AnimatedText({ text, className = "", once = false }: Ani
   }
 
   return (
-    <motion.div className="flex flex-wrap" variants={container} initial="hidden" animate="visible" viewport={{ once }}>
+    <motion.div
+      className={`overflow-hidden flex flex-wrap ${className}`}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      viewport={{ once }}
+    >
       {words.map((word, index) => (
-        <motion.span variants={child} className={`inline-block mr-1 ${className}`} key={index}>
-          {word}
+        <motion.span
+          key={index}
+          style={{ display: "inline-block", marginRight: word.trim() === "" ? "0.25em" : "0.25em" }}
+          variants={child}
+        >
+          {word.trim() === "" ? "\u00A0" : word}
         </motion.span>
       ))}
     </motion.div>
