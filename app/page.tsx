@@ -105,7 +105,7 @@ export default function Home() {
       imageUrl:
         "https://media.istockphoto.com/id/468721588/photo/horses-confronting.jpg?s=612x612&w=0&k=20&c=IRn3x2JqzgA8djGtPd-Xh2d_4ReS3xNT0p3RQvGLqE0=",
       githubUrl: "https://github.com/shashwath1278/ReactMate",
-      liveUrl: "https://react-mate.vercel.app/",
+      liveUrl: "https://react-mate--two.vercel.app/",
     },
   ]
 
