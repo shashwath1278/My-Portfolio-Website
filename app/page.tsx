@@ -90,22 +90,21 @@ export default function Home() {
       githubUrl: "https://github.com/shashwath1278/ShadowVault---Web-Exploitation-CTF-Challenge",
     },
     {
-      title: "Kardia",
+      title: "AI Scout",
       description:
-        "An advanced full-stack application that assesses heart risk based on ECG data and user-provided parameters.",
-      technologies: ["React", "Firebase", "Tailwind CSS", "Flask", "Python"],
-      imageUrl:
-        "https://w7.pngwing.com/pngs/59/456/png-transparent-red-heart-illustration-heart-rate-red-love-pulse-heart-of-love-red-broken-line-love-text-heart.png",
-      githubUrl: "https://github.com/shashwath1278/Heart-risk-score-wHACKiest2024",
+        "A smart search platform to discover, explore, and filter the latest AI tools across categories like development, design, chatbots, marketing, and more.",
+      technologies: ["Next.js", "Node.js", "Tailwind CSS", "Groq model"],
+      imageUrl: "https://www.frankandmarci.com/wp-content/uploads/2023/03/01-B-ai-book-cover-design.png",
+      githubUrl: "https://github.com/shashwath1278/AI-Scout",
     },
     {
       title: "ReactMate",
       description: "React Chess Master is a fully functional chess game built using React.js and chess.js.",
-      technologies: ["React.js", "RxJS", "Chess.js", "TypeScript"],
+      technologies: ["React.js", "RxJS", "Chess.js", "TypeScript","Next.js","Tailwind CSS"],
       imageUrl:
         "https://media.istockphoto.com/id/468721588/photo/horses-confronting.jpg?s=612x612&w=0&k=20&c=IRn3x2JqzgA8djGtPd-Xh2d_4ReS3xNT0p3RQvGLqE0=",
       githubUrl: "https://github.com/shashwath1278/ReactMate",
-      liveUrl: "https://react-mate--two.vercel.app/",
+      liveUrl: "https://react-mate-website.vercel.app/",
     },
   ]
 
